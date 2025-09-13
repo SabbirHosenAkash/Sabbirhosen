@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sabbir Hosen Akash - Portfolio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset */
+    * {
+      margin: 0; padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+      scroll-behavior: smooth;
+      transition: all 0.3s ease-in-out;
+      touch-action: manipulation;
+    }
+
+    /* Body */
+    body { background-color: #111; color: white; text-align: center; }
+
+    /* Rotating Color Selector */
+    .color-selector {
+      width: 50px; height: 50px; position: fixed; top: 20px; left: 20px;
+      border-radius: 50%; background: linear-gradient(45deg, red, green);
+      animation: rotate 3s linear infinite; cursor: pointer;
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); z-index: 20;
+    }
+    .color-selector:hover { transform: scale(1.1); box-shadow: 0 0 12px rgba(255,255,255,0.7); }
+    @keyframes rotate { 0%{transform:rotate(0deg);} 100%{transform:rotate(360deg);} }
+
+    /* Menu */
+    .menu-button {
+      position: fixed; top: 20px; right: 20px; font-size: 24px;
+      background: green; padding: 10px; border-radius: 5px;
+      cursor: pointer; z-index: 20;
+    }
+    .menu {
+      display: none; position: fixed; top: 60px; right: 20px;
+      background: #222; padding: 10px; border-radius: 5px; z-index: 20;
+    }
+    .menu ul { list-style: none; }
+    .menu ul li { padding: 10px; }
+    .menu ul li a { color: white; text-decoration: none; }
+    .menu ul li a:hover { color: #00ff00; }
+
+    /* Profile */
+    .profile { margin-top: 80px; padding: 20px; }
+    .profile-image img {
+      width: 170px; height: 170px; border-radius: 50%;
+      border: 10px solid transparent; animation: rotateBorder 3s linear infinite;
+    }
+    @keyframes rotateBorder {
+      0%{border-color:red green;} 50%{border-color:green red;} 100%{border-color:red green;}
+    }
+
+    /* Typing */
+    #typing-effect { color: green; font-size: 24px; }
+
+    /* Download Button */
+    .download-btn {
+      background: green; color: white; padding: 10px 20px; margin: 10px;
+      border: none; cursor: pointer; border-radius: 5px; font-weight: bold;
+    }
+    .download-btn:hover { background: darkgreen; transform: scale(1.05); }
+
+    /* Social Icons */
+    .social-icons { display: flex; justify-content: center; margin-top: 20px; }
+    .social-icons i { font-size: 24px; margin: 10px; cursor: pointer; color: green; }
+    .social-icons i:hover { transform: scale(1.2); }
+
+    /* Sections */
+    section { padding: 50px 20px; }
+
+    .service-box, .education-box, .organisations-box, .contact-box, .book-box {
+      background: #222; padding: 20px; margin: 10px; border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,255,0,0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .service-box:hover, .education-box:hover, .organisations-box:hover,
+    .contact-box:hover, .book-box:hover {
+      transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+      box-shadow: 0 15px 30px rgba(0,255,0,0.5);
+    }
+
+    .green-text { color: green; font-weight: bold; }
+
+    /* Skills */
+    #skills { text-align: center; }
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 25px;
+      max-width: 900px;
+      margin: 30px auto;
+      justify-items: center;
+    }
+    .skill { width: 160px; height: 160px; display: flex; flex-direction: column; align-items: center; }
+    .outer {
+      width: 160px; height: 160px; border-radius: 50%; padding: 15px;
+      background: conic-gradient(#00ffcc 0deg, #444 0deg);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .inner {
+      width: 120px; height: 120px; border-radius: 50%;
+      background: #222; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; font-weight: bold; color: #00ffcc;
+    }
+    .label { margin-top: 12px; font-weight: 600; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .profile-image img { width: 120px; height: 120px; }
+      .profile h1 { font-size: 1.5em; }
+      .menu-button { font-size: 20px; }
+      .download-btn, form button { font-size: 14px; padding: 8px 16px; }
+      .skill { width: 130px; height: 130px; }
+      .outer { width: 130px; height: 130px; padding: 10px; }
+      .inner { width: 95px; height: 95px; font-size: 0.9rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Color Selector -->
+  <div class="color-selector"></div>
+  <!-- Menu -->
+  <div class="menu-button">☰</div>
+  <div class="menu">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#listen">Listen</a></li>
+      <li><a href="#books">Books</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+
+  <!-- Profile -->
+  <section id="home" class="profile">
+    <div class="profile-image">
+      <img src="about.png" alt="Sabbir Hosen Akash">
+    </div>
+    <h3>Hello! I'm</h3>
+    <h1>Sabbir Hosen Akash</h1>
+    <h2 id="typing-effect"></h2>
+    <p>Sabbir Hosen Akash, popularly known as Writarion, is a Bangladeshi Musician, Writer, Web Developer, SEO Expert, keyboard player, and backing vocalist of the Oparok Band.</p>
+    <button class="download-btn">Download</button>
+    <div class="social-icons">
+      <a href="https://open.spotify.com/artist/2x3o1BGTKa9oyQIatDkgZQ?si=ejxgv944Qu-SELlkMmOKew"><i>🎵</i></a>
+      <a href="https://www.instagram.com/sabbirhosenakash"><i>📸</i></a>
+      <a href="https://twitter.com/sabirhosenakash"><i>🐦</i></a>
+      <a href="https://www.facebook.com/sabbirh0senakash"><i>📘</i></a>
+      <a href="https://www.youtube.com/c/sabbirhosenakash"><i>▶</i></a>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>My Services</h2>
+    <div class="service-box">SEO - Better ranking</div>
+    <div class="service-box">Web Designing - Responsive</div>
+    <div class="service-box">Video Editing - Professional</div>
+    <div class="service-box">Photography - Capturing moments</div>
+  </section>
+
+  <!-- Education -->
+  <section id="education">
+    <h2>Education</h2>
+    <div class="education-box">
+      <h4>HSC - Govt. Hazi A. B. College</h4><p>2022-2024</p>
+    </div>
+    <div class="education-box">
+      <h4>SSC - South Sandwip ML High School</h4><p>2017-2022</p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2><span class="green-text">My</span> Skills</h2>
+    <div class="skills-container">
+      <div class="skill" data-percent="90">
+        <div class="outer"><div class="inner">90%</div></div>
+        <div class="label">HTML</div>
+      </div>
+      <div class="skill" data-percent="80">
+        <div class="outer"><div class="inner">80%</div></div>
+        <div class="label">CSS</div>
+      </div>
+      <div class="skill" data-percent="70">
+        <div class="outer"><div class="inner">70%</div></div>
+        <div class="label">JavaScript</div>
+      </div>
+      <div class="skill" data-percent="60">
+        <div class="outer"><div class="inner">60%</div></div>
+        <div class="label">React</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <div class="contact-box">
+      <p><b>Address:</b> Sandwip, Chittagong</p>
+      <p><b>Email:</b> writarion@gmail.com</p>
+      <p><b>Phone:</b> (+880) 1620302210</p>
+    </div>
+    <form id="contact-form">
+      <input type="text" name="first-name" placeholder="Enter your first name" required>
+      <input type="text" name="last-name" placeholder="Enter your last name" required>
+      <input type="email" name="email" placeholder="Enter your email" required>
+      <textarea name="message" placeholder="Write your message" rows="4" required></textarea>
+      <button type="submit">Send</button>
+      <p id="success-message" style="display:none; color:green;">Successfully Sent Message!</p>
+    </form>
+  </section>
+
+  <footer>© 2025 Sabbir Hosen Akash. All rights reserved.</footer>
+
+  <script>
+    // Menu Toggle
+    document.querySelector(".menu-button").addEventListener("click", () => {
+      let menu = document.querySelector(".menu");
+      menu.style.display = menu.style.display === "block" ? "none" : "block";
+    });
+
+    // Typing Effect
+    const textArray = ["Bangladeshi Musician","Writer","Web Developer","SEO Expert"];
+    let textIndex=0, charIndex=0;
+    const typingSpeed=100, erasingSpeed=50;
+    const typingElement=document.getElementById("typing-effect");
+    function type(){
+      if(charIndex<textArray[textIndex].length){
+        typingElement.innerHTML+=textArray[textIndex].charAt(charIndex);
+        charIndex++; setTimeout(type,typingSpeed);
+      } else setTimeout(erase,1500);
+    }
+    function erase(){
+      if(charIndex>0){
+        typingElement.innerHTML=textArray[textIndex].substring(0,charIndex-1);
+        charIndex--; setTimeout(erase,erasingSpeed);
+      } else { textIndex=(textIndex+1)%textArray.length; setTimeout(type,500);}
+    }
+    document.addEventListener("DOMContentLoaded",()=>setTimeout(type,1000));
+
+    // Background Color Changer
+    const colors=["#ff5733","#33ff57","#3357ff","#ff33f6","#f3ff33","#33fff3","#ffffff","#000000","#555555","#8a2be2"];
+    document.querySelector(".color-selector").addEventListener("click",()=>{
+      let randomColor=colors[Math.floor(Math.random()*colors.length)];
+      document.body.style.backgroundColor=randomColor;
+    });
+
+    // Skills Ring Animation
+    document.querySelectorAll(".skill").forEach(skill=>{
+      let percent=skill.getAttribute("data-percent");
+      let outer=skill.querySelector(".outer");
+      let start=0, end=parseInt(percent), speed=20;
+      let progress=setInterval(()=>{
+        start++;
+        outer.style.background=`conic-gradient(#00ffcc ${start*3.6}deg, #444 0deg)`;
+        if(start>=end) clearInterval(progress);
+      },speed);
+    });
+
+    // Contact Form
+    document.getElementById("contact-form").addEventListener("submit",function(event){
+      event.preventDefault();
+      document.getElementById("success-message").style.display="block";
+      this.reset();
+    });
+  </script>
+</body>
+</html>
