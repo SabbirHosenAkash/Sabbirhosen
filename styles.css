@@ -1,0 +1,272 @@
+/* ================= GOOGLE FONT ================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* ================= GLOBAL STYLES ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  scroll-behavior: smooth;
+  transition: all 0.3s ease-in-out;
+  touch-action: manipulation;
+}
+
+body {
+  background-color: #111;
+  color: white;
+  text-align: center;
+  transition: background 0.5s ease;
+  line-height: 1.6;
+}
+
+/* ================= COLOR SELECTOR ================= */
+.color-selector {
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, red, green);
+  animation: rotate 3s linear infinite;
+  cursor: pointer;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  z-index: 50;
+}
+
+.color-selector:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.7);
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ================= MENU ================= */
+.menu-button {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  font-size: 24px;
+  background: green;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.menu {
+  display: none;
+  position: fixed;
+  top: 60px;
+  right: 20px;
+  background: #222;
+  padding: 15px;
+  border-radius: 10px;
+  z-index: 99;
+  width: 200px;
+}
+
+.menu ul {
+  list-style: none;
+}
+
+.menu ul li {
+  padding: 10px;
+}
+
+.menu ul li a {
+  text-decoration: none;
+  color: white;
+  font-weight: 500;
+}
+
+.menu ul li a:hover {
+  color: #00ff00;
+}
+
+/* ================= PROFILE ================= */
+.profile {
+  margin-top: 120px;
+  padding: 20px;
+  text-align: center;
+}
+
+.profile-image img {
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  border: 10px solid transparent;
+  animation: rotateBorder 3s linear infinite;
+}
+
+@keyframes rotateBorder {
+  0% { border-color: red green; }
+  50% { border-color: green red; }
+  100% { border-color: red green; }
+}
+
+/* ================= TYPING EFFECT ================= */
+#typing-effect {
+  color: green;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* ================= BUTTONS ================= */
+.download-btn {
+  background: green;
+  color: white;
+  padding: 10px 20px;
+  margin: 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: transform 0.3s, background 0.3s ease;
+}
+
+.download-btn:hover {
+  background: darkgreen;
+  transform: scale(1.05);
+}
+
+/* ================= SOCIAL ICONS ================= */
+.social-icons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
+
+.social-icons i {
+  font-size: 24px;
+  margin: 10px;
+  cursor: pointer;
+  color: green;
+  transition: transform 0.3s ease;
+}
+
+.social-icons i:hover {
+  transform: scale(1.2);
+}
+
+/* ================= ABOUT SECTION ================= */
+#what-i-do {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.about-image {
+  display: block;
+  margin: 20px auto;
+  width: 90%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ================= BOX SECTIONS ================= */
+.service-box, .education-box, .organisations-box, .contact-box, .book-box {
+  background: #222;
+  padding: 20px;
+  margin: 15px auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px rgba(0, 255, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 400px;
+}
+
+.service-box:hover, .education-box:hover, .organisations-box:hover, 
+.contact-box:hover, .book-box:hover {
+  transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+  box-shadow: 0 15px 30px rgba(0, 255, 0, 0.5);
+}
+
+/* ================= BOOKS ================= */
+#books {
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.book-box img {
+  width: 100%;
+  max-width: 200px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.book-box p {
+  font-size: 16px;
+  margin-bottom: 15px;
+  padding: 0 10px;
+}
+
+.book-btn {
+  background: #E97451;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.book-btn:hover {
+  background: #d16246;
+}
+
+/* ================= CONTACT FORM ================= */
+form input, form textarea {
+  width: 90%;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  background: #333;
+  color: white;
+  display: block;
+}
+
+form input:focus, form textarea:focus {
+  outline: 2px solid green;
+}
+
+form button {
+  background: green;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+form button:hover {
+  background: darkgreen;
+  transform: scale(1.05);
+}
+
+/* ================= RESPONSIVE DESIGN ================= */
+@media (max-width: 768px) {
+  .profile-image img {
+    width: 120px;
+    height: 120px;
+  }
+  .profile h1 {
+    font-size: 1.5rem;
+  }
+  .download-btn, form button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  .menu {
+    width: 80%;
+    right: 10%;
+  }
+}
